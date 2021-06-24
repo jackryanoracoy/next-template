@@ -1,0 +1,19 @@
+/*!
+ * Title:       Next Template
+ * File:        Notice Style
+ * Description: This is the style used for notice.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Browser Notice
+--------------------------------------------------*/
+
+.browser-notice {
+  padding: 20px;
+  color: $white;
+  text-align: center;
+  background-color: $danger;
+}

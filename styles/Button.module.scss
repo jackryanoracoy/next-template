@@ -1,0 +1,57 @@
+/*!
+ * Title:       Next Template
+ * File:        Button Style
+ * Description: This is the style used for buttons.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Button
+--------------------------------------------------*/
+
+.button {
+  display: inline-block;
+  min-width: $button-height;
+  padding: 0 15px;
+  color: $dark !important;
+  font-size: $font-nm;
+  line-height: $button-height;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: $button-height / 2;
+  background-color: $white;
+  box-shadow: $z-depth-1;
+  white-space: nowrap;
+
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    box-shadow: $z-depth-2;
+  }
+
+  &.is_block { display: block; }
+
+  &.is_large {
+    min-width: $button-height-lg;
+    line-height: $button-height-lg;
+    border-radius: $button-height-lg / 2;
+    padding: 0 20px;
+  }
+
+  &%button-text { color: $white !important; }
+
+  @each $color, $value in $theme-colors {
+    &.is_#{$color} {
+      @extend %button-text;
+      background-color: #{$value};
+    }
+  }
+}

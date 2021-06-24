@@ -1,0 +1,148 @@
+// Breakpoint (min)
+// @include media-breakpoint-min(sm) {...}
+@mixin media-breakpoint-min($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// Breakpoint (max)
+// @include media-breakpoint-max(sm) {...}
+@mixin media-breakpoint-max($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// Breakpoint (mix)
+// @include media-breakpoint-mix(sm, md) {...}
+@mixin media-breakpoint-mix($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  } @else {
+    @if (map-has-key($breakpoints, $lower) == false) {
+      @warn 'Invalid breakpoint (min): #{$lower}.';
+    }
+    @if (map-has-key($breakpoints, $upper) == false) {
+      @warn 'Invalid breakpoint (max): #{$upper}.';
+    }
+  }
+}
+
+// Media Queries
+// div {... @include media-breakpoint-min(md) {...} }
+@mixin media-breakpoint-min($width, $type: min) {
+  @if map-has-key($breakpoints, $width) {
+    $width: map-get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Responsive ratio
+// div { @include responsive-ratio(16,9); }
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+// Flex Column
+// @include flex-col-width(1)
+@mixin flex-col-width($size, $columns: $column-count) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin flex-col-width-alt($size, $columns: $column-count-alt) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin basis-col-width($size, $columns: $column-count) {
+  flex-basis: percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin flex-col-width-auto() {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+// Offset
+// @include offset(1)
+@mixin offset($size, $columns: $column-count) {
+  margin-left: percentage($size / $columns);
+}
+
+// Font Face
+// @include font-face("My Font", my-font, 300);
+@mixin font-face($name, $file, $weight ) {
+  @font-face {
+    font-family: '#{$name}';
+    font-display: auto;
+    font-style: normal;
+    font-weight: #{$weight};
+    src: url('../fonts/#{$file}.woff2') format('woff2'),
+         url('../fonts/#{$file}.woff') format('woff'),
+  }
+}
+
+// Margin and Padding Reset
+@mixin ua-pad-mar-reset {
+  padding: 0;
+  margin: 0;
+}
+
+// Box Sizing
+@mixin box-sizing($box-size) {
+  box-sizing: $box-size;
+}
+
+// Text Adjust
+@mixin text-size-adjust($text-size) {
+  -ms-text-size-adjust: $text-size;
+  -webkit-text-size-adjust: $text-size;
+}
+
+// Font Smoothing
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Image Render Crisp
+@mixin img-render-crisp {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}

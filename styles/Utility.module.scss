@@ -1,0 +1,533 @@
+/*!
+ * Title:       Next Template
+ * File:        Utility Style
+ * Description: This is the utility/helper style.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Screen readers only
+--------------------------------------------------*/
+
+.sr_only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+
+  &.is_focusable:active,
+  &.is_focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal !important;
+  }
+}
+
+/*--------------------------------------------------
+  Clearfix
+--------------------------------------------------*/
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/*--------------------------------------------------
+  Disyplay
+--------------------------------------------------*/
+
+.inline { display: inline; }
+.block { display: block; }
+.inline_block { display: inline-block; }
+
+/*--------------------------------------------------
+  Hidden
+--------------------------------------------------*/
+
+.hidden {
+  display: none; visibility: hidden;
+
+  @each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-min($breakpoint) {
+      &_#{$breakpoint}_min { display: none; visibility: hidden; }
+    }
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-max($breakpoint) {
+      &_#{$breakpoint}_max { display: none; visibility: hidden; }
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Float
+--------------------------------------------------*/
+
+.float_left { float: left; }
+.float_right { float: right; }
+.float_none { float: none; }
+
+/*--------------------------------------------------
+  Width and Height
+--------------------------------------------------*/
+
+.width_25 { width: 25%; }
+.width_50 { width: 50%; }
+.width_75 { width: 75%; }
+.width_100 { width: 100%; }
+.max_width_100 { max-width: 100%; }
+.viewport_width_100 { width: 100vw; }
+
+.height_25 { height: 25%; }
+.height_50 { height: 50%; }
+.height_75 { height: 75%; }
+.height_100 { height: 100%; }
+.max_height_100 { max-height: 100%; }
+.viewport_height_100 { height: 100vh; }
+
+/*--------------------------------------------------
+  Padding
+--------------------------------------------------*/
+
+@each $padding in $gap {
+  .pt_#{$padding} { padding-top: #{#{$padding}px}; }
+  .pr_#{$padding} { padding-right: #{#{$padding}px}; }
+  .pb_#{$padding} { padding-bottom: #{#{$padding}px}; }
+  .pl_#{$padding} { padding-left: #{#{$padding}px}; }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+  @include media-breakpoint-min($breakpoint) {
+    @each $padding in $gap {
+      .pt_#{$breakpoint}_#{$padding} { padding-top: #{#{$padding}px}; }
+      .pr_#{$breakpoint}_#{$padding} { padding-right: #{#{$padding}px}; }
+      .pb_#{$breakpoint}_#{$padding} { padding-bottom: #{#{$padding}px}; }
+      .pl_#{$breakpoint}_#{$padding} { padding-left: #{#{$padding}px}; }
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Margin
+--------------------------------------------------*/
+
+@each $margin in $gap {
+  .mt_#{$margin} { margin-top: #{#{$margin}px}; }
+  .mr_#{$margin} { margin-right: #{#{$margin}px}; }
+  .mb_#{$margin} { margin-bottom: #{#{$margin}px}; }
+  .ml_#{$margin} { margin-left: #{#{$margin}px}; }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+  @include media-breakpoint-min($breakpoint) {
+    @each $margin in $gap {
+      .mt_#{$breakpoint}_#{$margin} { margin-top: #{#{$margin}px}; }
+      .mr_#{$breakpoint}_#{$margin} { margin-right: #{#{$margin}px}; }
+      .mb_#{$breakpoint}_#{$margin} { margin-bottom: #{#{$margin}px}; }
+      .ml_#{$breakpoint}_#{$margin} { margin-left: #{#{$margin}px}; }
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Typography
+--------------------------------------------------*/
+
+.text_center { text-align: center; }
+.text_justify { text-align: justify; }
+.text_right { text-align: right; }
+.text_left { text-align: left; }
+
+.text_overline { text-decoration: overline; }
+.text_underline { text-decoration: underline; }
+.text_linethrough { text-decoration: line-through; }
+
+.font_normal { font-weight: normal; }
+.font_bold { font-weight: bold; }
+.font_bolder { font-weight: bolder; }
+.font_lighter { font-weight: lighter; }
+
+.font_default { font-size: $font-nm; }
+.font_small { font-size: $font-sm; }
+.font_medium { font-size: $font-md; }
+.font_large { font-size: $font-lg; }
+.font_extra_large { font-size: $font-xl; }
+.font_super_large { font-size: $font-sl; }
+.font_mega_large { font-size: $font-ml; }
+
+@each $breakpoint in map-keys($breakpoints) {
+  @include media-breakpoint-min($breakpoint) {
+    .text_center_#{$breakpoint} { text-align: center; }
+    .text_justify_#{$breakpoint} { text-align: justify; }
+    .text_right_#{$breakpoint} { text-align: right; }
+    .text_left_#{$breakpoint} { text-align: left; }
+
+    .text_overline_#{$breakpoint} { text-decoration: overline; }
+    .text_underline_#{$breakpoint} { text-decoration: underline; }
+    .text_linethrough_#{$breakpoint} { text-decoration: line-through; }
+
+    .font_normal_#{$breakpoint} { font-weight: normal; }
+    .font_bold_#{$breakpoint} { font-weight: bold; }
+    .font_bolder_#{$breakpoint} { font-weight: bolder; }
+    .font_lighter_#{$breakpoint} { font-weight: lighter; }
+
+    .font_default_#{$breakpoint} { font-size: $font-nm; }
+    .font_small_#{$breakpoint} { font-size: $font-sm; }
+    .font_medium_#{$breakpoint} { font-size: $font-md; }
+    .font_large_#{$breakpoint} { font-size: $font-lg; }
+    .font_extra_large_#{$breakpoint} { font-size: $font-xl; }
+    .font_super_large_#{$breakpoint} { font-size: $font-sl; }
+    .font_mega_large_#{$breakpoint} { font-size: $font-ml; }
+  }
+}
+
+/*--------------------------------------------------
+  List
+--------------------------------------------------*/
+
+.list {
+  list-style-type: none;
+
+  &.is_disc { list-style-type: disc; }
+  &.is_square { list-style-type: square; }
+  &.is_circle { list-style-type: circle; }
+}
+
+/*--------------------------------------------------
+  Color
+--------------------------------------------------*/
+
+@each $color, $value in $theme-colors {
+  .color_#{$color} { color: #{$value}; }
+}
+
+@each $color, $value in $colors {
+  .color_#{$color} { color: #{$value}; }
+}
+
+@each $shade, $value in $greys {
+  .color_grey_#{$shade} { color: #{$value}; }
+}
+
+/*--------------------------------------------------
+  Background color
+--------------------------------------------------*/
+
+@each $color, $value in $theme-colors {
+  .bg_#{$color} { background-color: #{$value}; }
+}
+
+@each $color, $value in $colors {
+  .bg_#{$color} { background-color: #{$value}; }
+}
+
+@each $shade, $value in $greys {
+  .bg_grey_#{$shade} { background-color: #{$value}; }
+}
+
+/*--------------------------------------------------
+  Overflow
+--------------------------------------------------*/
+
+.overflow_auto { overflow: auto; }
+.overflow_hidden { overflow: hidden; }
+.overflow_scroll { overflow: scroll; }
+.overflow_visible { overflow: visible; }
+
+.overflow_x_auto { overflow-x: auto; }
+.overflow_x_hidden { overflow-x: hidden; }
+.overflow_x_scroll { overflow-x: scroll; }
+.overflow_x_visible { overflow-x: visible; }
+
+.overflow_y_auto { overflow-y: auto; }
+.overflow_y_hidden { overflow-y: hidden; }
+.overflow_y_scroll { overflow-y: scroll; }
+.overflow_y_visible { overflow-y: visible; }
+
+/*--------------------------------------------------
+  Image
+--------------------------------------------------*/
+
+.img_fluid { max-width: 100%; height: auto; }
+.img_crispt { @include img-render-crisp(); }
+
+/*--------------------------------------------------
+  Flex
+--------------------------------------------------*/
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.is_row_wrp { flex-flow: row wrap; }
+  &.is_row_wrp_no { flex-flow: row nowrap; }
+  &.is_row_wrp_rev { flex-flow: row wrap-reverse; }
+  &.is_row_rev_wrp { flex-flow: row-reverse wrap; }
+  &.is_row_rev_wrp_no { flex-flow: row-reverse nowrap; }
+  &.is_row_rev_wrp_rev { flex-flow: row-reverse wrap-reverse; }
+
+  &.is_col_wrp { flex-flow: column wrap; }
+  &.is_col_wrp_no { flex-flow: column nowrap; }
+  &.is_col_wrp_rev { flex-flow: column wrap-reverse; }
+  &.is_col_rev_wrp { flex-flow: column-reverse wrap; }
+  &.is_col_rev_wrp_no { flex-flow: column-reverse nowrap; }
+  &.is_col_rev_wrp_rev { flex-flow: column-reverse wrap-reverse; }
+
+  &.is_wrp { flex-wrap: wrap; }
+  &.is_wrp_no { flex-wrap: nowrap; }
+  &.is_wrp_rev { flex-wrap: wrap-reverse; }
+
+  &.is_col { flex-direction: column; }
+  &.is_col_rev { flex-direction: column-reverse; }
+
+  &.is_row { flex-direction: row; }
+  &.is_row_rev { flex-direction: row-reverse; }
+
+  &.is_jus_start { justify-content: flex-start; }
+  &.is_jus_end { justify-content: flex-end; }
+  &.is_jus_center { justify-content: center; }
+  &.is_jus_sparound { justify-content: space-around; }
+  &.is_jus_spbetween { justify-content: space-between; }
+  &.is_jus_spevenly { justify-content: space-evenly; }
+
+  &.is_ali_start { align-content: flex-start; }
+  &.is_ali_end { align-content: flex-end; }
+  &.is_ali_center { align-content: center; }
+  &.is_ali_stretch { align-content: stretch; }
+  &.is_ali_sparound { align-content: space-around; }
+  &.is_ali_spbetween { align-content: space-between; }
+
+  &.is_alt_start { align-items: flex-start; }
+  &.is_alt_end { align-items: flex-end; }
+  &.is_alt_center { align-items: center; }
+  &.is_alt_stretch { align-items: stretch; }
+  &.is_alt_baseline { align-items: baseline; }
+
+  &_als_start { align-self: flex-start; }
+  &_als_end { align-self: flex-end; }
+  &_als_center { align-self: center; }
+  &_als_stretch { align-self: stretch; }
+  &_als_baseline { align-self: baseline; }
+
+  @for $count from 1 through 12 {
+    &_order_#{$count} { order: #{$count}; }
+  }
+
+  &_item { @include flex-col-width-auto(); }
+
+  @for $count from 1 through 12 {
+    &_item_#{$count} { @include flex-col-width($count); }
+  }
+
+  @for $count from 1 through 12 {
+    &_basis_#{$count} { @include basis_col_width($count); }
+  }
+
+  &_grow { flex-grow: 1; }
+  &_grow_no { flex-grow: 0; }
+  &_shrink { flex-shrink: 1; }
+  &_shrink_no { flex-shrink: 0; }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-min($breakpoint) {
+      &.is_row_wrp_#{$breakpoint} { flex-flow: row wrap; }
+      &.is_row_wrp_no_#{$breakpoint} { flex-flow: row nowrap; }
+      &.is_row_wrp_rev_#{$breakpoint} { flex-flow: row wrap-reverse; }
+      &.is_row_rev_wrp_#{$breakpoint} { flex-flow: row-reverse wrap; }
+      &.is_row_rev_wrp_no_#{$breakpoint} { flex-flow: row-reverse nowrap; }
+      &.is_row_rev_wrp_rev_#{$breakpoint} { flex-flow: row-reverse wrap-reverse; }
+
+      &.is_col_wrp_#{$breakpoint} { flex-flow: column wrap; }
+      &.is_col_wrp_no_#{$breakpoint} { flex-flow: column nowrap; }
+      &.is_col_wrp_rev_#{$breakpoint} { flex-flow: column wrap-reverse; }
+      &.is_col_rev_wrp_#{$breakpoint} { flex-flow: column-reverse wrap; }
+      &.is_col_rev_wrp_no_#{$breakpoint} { flex-flow: column-reverse nowrap; }
+      &.is_col_rev_wrp_rev_#{$breakpoint} { flex-flow: column-reverse wrap-reverse; }
+
+      &.is_wrp_#{$breakpoint} { flex-wrap: wrap; }
+      &.is_wrp_no_#{$breakpoint} { flex-wrap: nowrap; }
+      &.is_wrp_rev_#{$breakpoint} { flex-wrap: wrap-reverse; }
+
+      &.is_col_#{$breakpoint} { flex-direction: column; }
+      &.is_col_rev_#{$breakpoint} { flex-direction: column-reverse; }
+
+      &.is_row_#{$breakpoint} { flex-direction: row; }
+      &.is_row_rev_#{$breakpoint} { flex-direction: row-reverse; }
+
+      &.is_jus_start_#{$breakpoint} { justify-content: flex-start; }
+      &.is_jus_end_#{$breakpoint} { justify-content: flex-end; }
+      &.is_jus_center_#{$breakpoint} { justify-content: center; }
+      &.is_jus_sparound_#{$breakpoint} { justify-content: space-around; }
+      &.is_jus_spbetween_#{$breakpoint} { justify-content: space-between; }
+      &.is_jus_spevenly_#{$breakpoint} { justify-content: space-evenly; }
+
+      &.is_ali_start_#{$breakpoint} { align-content: flex-start; }
+      &.is_ali_end_#{$breakpoint} { align-content: flex-end; }
+      &.is_ali_center_#{$breakpoint} { align-content: center; }
+      &.is_ali_stretch_#{$breakpoint} { align-content: stretch; }
+      &.is_ali_sparound_#{$breakpoint} { align-content: space-around; }
+      &.is_ali_spbetween_#{$breakpoint} { align-content: space-between; }
+
+      &.is_alt_start_#{$breakpoint} { align-items: flex-start; }
+      &.is_alt_end_#{$breakpoint} { align-items: flex-end; }
+      &.is_alt_center_#{$breakpoint} { align-items: center; }
+      &.is_alt_stretch_#{$breakpoint} { align-items: stretch; }
+      &.is_alt_baseline_#{$breakpoint} { align-items: baseline; }
+
+      &_als_start_#{$breakpoint} { align-self: flex-start; }
+      &_als_end_#{$breakpoint} { align-self: flex-end; }
+      &_als_center_#{$breakpoint} { align-self: center; }
+      &_als_stretch_#{$breakpoint} { align-self: stretch; }
+      &_als_baseline_#{$breakpoint} { align-self: baseline; }
+
+      @for $count from 1 through 12 {
+        &_order_#{$breakpoint}_#{$count} { order: #{$count}; }
+      }
+
+      &_item_#{$breakpoint} { @include flex-col-width-auto(); }
+
+      @for $count from 1 through 12 {
+        &_item_#{$breakpoint}_#{$count} { @include flex-col-width($count); }
+      }
+
+      @for $count from 1 through 12 {
+        &_basis_#{$breakpoint}_#{$count} { @include basis-col-width($count); }
+      }
+
+      &_grow_#{$breakpoint} { flex-grow: 1; }
+      &_grow_no_#{$breakpoint} { flex-grow: 0; }
+      &_shrink_#{$breakpoint} { flex-shrink: 1; }
+      &_shrink_no_#{$breakpoint} { flex-shrink: 0; }
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Gap
+--------------------------------------------------*/
+
+@each $gap in '10' '20' '30' '40' '50' {
+  .gap_#{$gap} {
+    margin: calc(#{-#{$gap}px} / 2);
+
+    & > div,
+    & > .gap_item { padding: calc(#{#{$gap}px} / 2); }
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-min($breakpoint) {
+      .gap_#{$breakpoint}-#{$gap} {
+        margin: calc(#{_#{$gap}px} / 2);
+
+        & > div,
+        & > .gap_item { padding: calc(#{#{$gap}px} / 2); }
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Offset
+--------------------------------------------------*/
+
+@for $count from 1 through 11 {
+  .offset_#{$count} { @include offset($count); }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+  @include media-breakpoint-min($breakpoint) {
+    @for $count from 1 through 11 {
+      .offset_#{$breakpoint}_#{$count} { @include offset($count); }
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Section
+--------------------------------------------------*/
+
+.section {
+  padding-top: ($section-gutter-ver / 2);
+  padding-bottom: ($section-gutter-ver / 2);
+  padding-right: $section-gutter-hor;
+  padding-left: $section-gutter-hor;
+
+  &.has_padding_wide {
+    padding-top: $section-gutter-ver;
+    padding-bottom: $section-gutter-ver;
+  }
+
+  &.has_padding_narrow {
+    padding-top: ($section-gutter-ver / 4);
+    padding-bottom: ($section-gutter-ver / 4);
+  }
+
+  &.has-padding_no { padding: 0 !important; }
+
+  @include media-breakpoint-min(lg) {
+    padding-top: $section-gutter-ver;
+    padding-bottom: $section-gutter-ver;
+
+    &.has_padding_wide {
+      padding-top: ($section-gutter-ver * 2);
+      padding-bottom: ($section-gutter-ver * 2);
+    }
+
+    &.has_padding_narrow {
+      padding-top: ($section-gutter-ver / 2);
+      padding-bottom: ($section-gutter-ver / 2);
+    }
+  }
+}
+
+/*--------------------------------------------------
+  Article
+--------------------------------------------------*/
+
+.article {
+  padding-top: ($section-gutter-ver / 2);
+
+  &.has_padding_wide { padding-top: $section-gutter-ver; }
+  &.has_padding_narrow { padding-top: ($section-gutter-ver / 4); }
+  &.has_padding_no { padding: 0 !important; }
+
+  @include media-breakpoint-min(lg) {
+    padding-top: $section-gutter-ver;
+
+    &.has_padding_wide { padding-top: ($section-gutter-ver * 2); }
+    &.has_padding_narrow { padding-top: ($section-gutter-ver / 2); }
+  }
+
+  @media print { page-break-inside: avoid; }
+}
+
+/*--------------------------------------------------
+  Card
+--------------------------------------------------*/
+
+.card {
+  color: $dark !important;
+  background-color: $grey-50;
+  border-radius: 2px;
+  box-shadow: $z-depth-1;
+
+  &.is_dark {
+    color: $light !important;
+    background-color: $dark;
+  }
+
+  &_content { padding: 20px; }
+}

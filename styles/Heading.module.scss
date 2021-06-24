@@ -1,0 +1,43 @@
+/*!
+ * Title:       Next Template
+ * File:        Heading Style
+ * Description: This is the style used for headings.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Heading
+--------------------------------------------------*/
+
+.heading-above-the-fold {
+  color: $secondary;
+  font-size: $font-sl;
+  letter-spacing: 0.5rem;
+
+  @include media-breakpoint-min(lg) {
+    font-size: $font-ml;
+  }
+}
+
+.heading-section {
+  color: $grey-700;
+  font-size: $font-xl;
+  letter-spacing: 0.2rem;
+
+  & a { color: inherit; }
+
+  @include media-breakpoint-min(lg) {
+    font-size: $font-sl;
+  }
+}
+
+.heading-article {
+  color: $grey-900;
+  font-size: $font-nm;
+
+  @include media-breakpoint-min(lg) {
+    font-size: $font-lg;
+  }
+}

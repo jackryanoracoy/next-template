@@ -1,0 +1,91 @@
+/*!
+ * Title:       Next Template
+ * File:        Form Style
+ * Description: This is the style used for forms.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Form
+--------------------------------------------------*/
+
+.form {
+  position: relative;
+
+  &.is-fuid { width: 100%; }
+
+  & label {
+    display: block;
+    text-transform: uppercase;
+  }
+
+  & textarea {
+    max-width: 100%;
+    height: $textarea-height;
+    min-height: $input-height;
+    resize: vertical;
+  }
+
+  & input[type=checkbox] {
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+  }
+
+  & input[type=text],
+  & input[type=email],
+  & input[type=number] {
+    height: $input-height;
+  }
+
+  & textarea,
+  & input[type=text],
+  & input[type=email],
+  & input[type=number] {
+    padding: 10px;
+    color: inherit;
+    font-size: $font-md;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: $line-height-nm;
+    background-color: transparent;
+    border: 1px solid $grey-600;
+  }
+
+  & button,
+  & input[type=button],
+  & input[type=submit] {
+    cursor: pointer;
+    border: none;
+  }
+
+  & button:disabled:hover,
+  & input[type=button]:disabled:hover,
+  & input[type=submit]:disabled:hover {
+    cursor: auto;
+    opacity: 0.5;
+    box-shadow: none;
+  }
+
+  & button,
+  & textarea,
+  & input[type=text],
+  & input[type=email],
+  & input[type=button],
+  & input[type=number],
+  & input[type=submit] {
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+  & ::placeholder {
+    color: inherit;
+    font-size: $font-md;
+    line-height: $input-height;
+  }
+}
+
+

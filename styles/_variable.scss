@@ -1,0 +1,180 @@
+// Colors
+$primary:               #B71C1C               !default;
+$secondary:             #880E4F               !default;
+$success:               #4CAF50               !default;
+$warning:               #FF9800               !default;
+$danger:                #F44336               !default;
+$info:                  #00BCD4               !default;
+$light:                 #E0E0E0               !default;
+$dark:                  #212121               !default;
+
+$red:                   #F44336               !default;
+$pink:                  #E91E63               !default;
+$purple:                #9C27B0               !default;
+$deep-purple:           #673AB7               !default;
+$indigo:                #3F51B5               !default;
+$blue:                  #2196F3               !default;
+$light-blue:            #03A9F4               !default;
+$cyan:                  #00BCD4               !default;
+$teal:                  #009688               !default;
+$green:                 #4CAF50               !default;
+$light-green:           #8BC34A               !default;
+$lime:                  #CDDC39               !default;
+$yellow:                #FFEB3B               !default;
+$amber:                 #FFC107               !default;
+$orange:                #FF9800               !default;
+$deep-orange:           #FF5722               !default;
+$brown:                 #795548               !default;
+$blue-grey:             #607D8B               !default;
+
+$grey-50:               #FAFAFA               !default;
+$grey-100:              #F5F5F5               !default;
+$grey-200:              #EEEEEE               !default;
+$grey-300:              #E0E0E0               !default;
+$grey-400:              #BDBDBD               !default;
+$grey-500:              #9E9E9E               !default;
+$grey-600:              #757575               !default;
+$grey-700:              #616161               !default;
+$grey-800:              #424242               !default;
+$grey-900:              #212121               !default;
+
+$white:                 #FFFFFF               !default;
+$black:                 #000000               !default;
+
+$theme-colors: ()                             !default;
+$theme-colors: map-merge( (
+  "primary":            $primary,
+  "secondary":          $secondary,
+  "success":            $success,
+  "info":               $info,
+  "warning":            $warning,
+  "danger":             $danger,
+  "light":              $light,
+  "dark":               $dark
+), $theme-colors );
+
+$colors: ()                                   !default;
+$colors: map-merge( (
+  "red":                $red,
+  "pink":               $pink,
+  "purple":             $purple,
+  "deep-purple":        $deep-purple,
+  "indigo":             $indigo,
+  "blue":               $blue,
+  "light-blue":         $light-blue,
+  "cyan":               $cyan,
+  "teal":               $teal,
+  "green":              $green,
+  "light-green":        $light-green,
+  "lime":               $lime,
+  "yellow":             $yellow,
+  "amber":              $amber,
+  "orange":             $orange,
+  "deep-orange":        $deep-orange,
+  "brown":              $brown,
+  "blue-grey":          $blue-grey,
+  "white":              $white,
+  "black":              $black
+), $colors );
+
+$greys: ()                                    !default;
+$greys: map-merge( (
+  "50":                 $grey-50,
+  "100":                $grey-100,
+  "200":                $grey-200,
+  "300":                $grey-300,
+  "400":                $grey-400,
+  "500":                $grey-500,
+  "600":                $grey-600,
+  "700":                $grey-700,
+  "800":                $grey-800,
+  "900":                $grey-900
+), $greys );
+
+// Breakpoints
+$breakpoints: (
+  "xs":                 410px,
+  "sm":                 576px,
+  "md":                 768px,
+  "lg":                 992px,
+  "xl":                 1200px
+)                                             !default;
+
+// Container
+$container-xs:          100%                  !default;
+$container-sm:          540px                 !default;
+$container-md:          720px                 !default;
+$container-lg:          960px                 !default;
+$container-xl:          1140px                !default;
+
+// Column Count
+$column-count:          12                    !default;
+$column-count-alt:      10                    !default;
+
+// Margin and Padding
+$gap:
+                        0,
+                        5,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,                   !default;
+
+// Font Size
+$font-sm:               1.2rem                !default;
+$font-md:               1.4rem                !default;
+$font-nm:               1.6rem                !default;
+$font-lg:               1.8rem                !default;
+$font-xl:               2.4rem                !default;
+$font-sl:               2.8rem                !default;
+$font-ml:               3.4rem                !default;
+
+// Line Height
+$line-height-sm:        1.2                   !default;
+$line-height-nm:        1.6                   !default;
+$line-height-lg:        1.8                   !default;
+
+// Header Height
+$header-height:         75px                  !default;
+$header-height_m:       60px                  !default;
+
+// Nav Height
+$nav-height:            50px                  !default;
+
+// Button Height
+$button-height:         50px                  !default;
+$button-height-lg:      60px                  !default;
+
+// Input Height
+$input-height:          50px                  !default;
+$textarea-height:       100px                 !default;
+
+// Section Gutter
+$section-gutter-ver:    60px                  !default;
+$section-gutter-hor:    10px                  !default;
+
+// Transition
+$transition:            all 300ms ease-in-out 120ms;
+
+// Box Shadow
+$z-depth-1:             0 2px 2px 0 rgba(0, 0, 0, 0.1),
+                        0 1px 4px 0 rgba(0, 0, 0, 0.15);
+$z-depth-2:             0 2px 2px 0 rgba(0, 0, 0, 0.15),
+                        0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                        0 4px 4px -4px rgba(0, 0, 0, 0.2);
+
+// Font Family
+$open-sans-condensed:   "Open Sans Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$Robot-condensed:       "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$noto-sans:             "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$noto-sans-jp:          "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$noto-sans-hk:          "Noto Sans HK", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$sans-serif:            -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$monospace:             SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Default Font Face
+$font-primary:          $noto-sans            !default;
+$font-secondary:        $open-sans-condensed  !default;
