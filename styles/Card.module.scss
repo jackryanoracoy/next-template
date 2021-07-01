@@ -1,0 +1,26 @@
+/*!
+ * Title:       Next Template
+ * File:        Card Style
+ * Description: Styles for cards.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Card
+--------------------------------------------------*/
+
+.card {
+  color: $dark !important;
+  background-color: $grey-50;
+  border-radius: 2px;
+  box-shadow: $z-depth-1;
+
+  &.is_dark {
+    color: $light !important;
+    background-color: $dark;
+  }
+
+  &_content { padding: 20px; }
+}

@@ -1,7 +1,7 @@
 /*!
  * Title:       Next Template
  * File:        Header Style
- * Description: This is the style used for header.
+ * Description: Style for header.
  */
 
 @import 'variable';
@@ -17,7 +17,11 @@
   width: 100%;
   min-width: 240px;
   z-index: 9;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+
+  &.active {
+    top: -$header-height_m;
+    transition: $transition;
+  }
 
   &_content {
     padding: 0 $section-gutter-hor;
@@ -30,9 +34,15 @@
     max-height: 0;
     transition: $transition;
     overflow: hidden;
+
+    &.show { max-height: 100vh; }
   }
 
   @include media-breakpoint-min(lg) {
+    & {
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+
     &.active {
       top: -$header-height;
     }
@@ -52,6 +62,12 @@
 
     &_navigation {
       max-height: 100vh;
+    }
+  }
+
+  @include media-breakpoint-max(lg) {
+    &:not(.active) {
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -88,7 +104,8 @@
     white-space: nowrap;
 
     &:hover,
-    &:active { text-decoration: none; }
+    &:active,
+    &.active { text-decoration: none; }
   }
 
   @include media-breakpoint-min(lg) {
@@ -100,6 +117,11 @@
     }
 
     &_item:hover a {
+      background-color: $primary;
+    }
+
+    &_item:hover,
+    &_item.active {
       background-color: $primary;
     }
   }
@@ -150,6 +172,10 @@
   &_text { margin: 4px 0 0; }
   &_inner::before { top: -10px; }
   &_inner::after { bottom: -10px; }
+
+  &.active &_inner { background-color: rgba(0, 0, 0, 0); }
+  &.active &_inner::before { top: 0; transform: rotate(-40deg); }
+  &.active &_inner::after { bottom: 0; transform: rotate(40deg); }
 }
 
 /*--------------------------------------------------

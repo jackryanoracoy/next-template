@@ -1,7 +1,7 @@
 /*!
  * Title:       Next Template
  * File:        Utility Style
- * Description: This is the utility/helper style.
+ * Description: Utility/helper styles.
  */
 
 @import 'variable';
@@ -512,22 +512,4 @@
   }
 
   @media print { page-break-inside: avoid; }
-}
-
-/*--------------------------------------------------
-  Card
---------------------------------------------------*/
-
-.card {
-  color: $dark !important;
-  background-color: $grey-50;
-  border-radius: 2px;
-  box-shadow: $z-depth-1;
-
-  &.is_dark {
-    color: $light !important;
-    background-color: $dark;
-  }
-
-  &_content { padding: 20px; }
 }

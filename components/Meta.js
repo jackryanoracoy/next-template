@@ -3,9 +3,9 @@ import Head from 'next/head'
 const Meta = ({ title, keywords, description }) => {
   return (
     <Head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta charset="utf-8" />
-
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      
       <title>{title}</title>
 
       <meta name='keywords' content={keywords} />

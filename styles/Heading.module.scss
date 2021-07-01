@@ -1,7 +1,7 @@
 /*!
  * Title:       Next Template
  * File:        Heading Style
- * Description: This is the style used for headings.
+ * Description: Style for headings.
  */
 
 @import 'variable';
@@ -11,7 +11,7 @@
   Heading
 --------------------------------------------------*/
 
-.heading-above-the-fold {
+.heading_atf {
   color: $secondary;
   font-size: $font-sl;
   letter-spacing: 0.5rem;
@@ -21,7 +21,7 @@
   }
 }
 
-.heading-section {
+.heading_section {
   color: $grey-700;
   font-size: $font-xl;
   letter-spacing: 0.2rem;
@@ -33,7 +33,7 @@
   }
 }
 
-.heading-article {
+.heading_article {
   color: $grey-900;
   font-size: $font-nm;
 

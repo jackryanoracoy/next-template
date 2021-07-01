@@ -6,7 +6,7 @@ import stylesUtility from '../styles/Utility.module.scss'
 export default function Home({ articles }) {
   return (
     <>
-      <Meta title='Home Page' keywords='Your Keyword' />
+      <Meta title='Home Page' />
       
       <section className={stylesUtility.section}>
         <h2 className={`
