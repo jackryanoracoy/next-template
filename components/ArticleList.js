@@ -10,7 +10,7 @@ const ArticleList = ({ articles }) => {
       {articles.map((article) => (
         <div className={`
           ${stylesUtility["flex_item_12"]} 
-          ${stylesUtility["flex_item_sm_6"]} 
+          ${stylesUtility["flex_item_xs_6"]} 
           ${stylesUtility["flex_item_md_4"]} 
         `}>
           <ArticleItem article={article} />

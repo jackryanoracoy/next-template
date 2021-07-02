@@ -11,8 +11,8 @@ const Header = () => {
   const handleClick = () => {
     setActive(!active);
   };
-  
-  const [scroll, setScroll] = useState(false);
+
+  const [scroll, setScroll] = useState(0);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 50);
@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header id="header" className={`${styles["header"]} ${scroll ? styles["active"] : ""}`}>
+    <header id="header" className={`${styles["header"]} ${scroll ? styles["hide"] : ""} ${active ? styles["menu_show"] : ""}`}>
       <div className={`
         ${styles["header_content"]} 
         ${stylesUtility["bg_primary"]} 
@@ -30,7 +30,7 @@ const Header = () => {
       `}>
         <div className={styles.header_branding}>
           <h1 className={styles.branding}>
-            <Link href='/'><a className={styles.branding_title}>SITE BRANDING</a></Link>
+            <Link href='/'><a className={styles.branding_title}>NEXT TEMPLATE</a></Link>
           </h1>
         </div>
 
