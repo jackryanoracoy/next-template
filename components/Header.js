@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header id="header" className={`${styles["header"]} ${scroll ? styles["hide"] : ""} ${active ? styles["menu_show"] : ""}`}>
+    <header id="header" className={`${styles["header"]} ${scroll ? styles["hide"] : styles["show"]} ${active ? styles["menu_show"] : ""}`}>
       <div className={`
         ${styles["header_content"]} 
         ${stylesUtility["bg_primary"]} 
@@ -56,6 +56,7 @@ const Header = () => {
             <li className={`${styles["nav_item"]} ${router.pathname == "/" ? styles["active"] : ""}`}><Link href='/'>Home</Link></li>
             <li className={`${styles["nav_item"]} ${router.pathname == "/about" ? styles["active"] : ""}`}><Link href='/about'>About</Link></li>
             <li className={`${styles["nav_item"]} ${router.pathname == "/articles" ? styles["active"] : ""}`}><Link href='/articles'>Articles</Link></li>
+            <li className={`${styles["nav_item"]} ${router.pathname == "/contact" ? styles["active"] : ""}`}><Link href='/contact'>Contacts</Link></li>
           </ul>
         </nav>
       </div>

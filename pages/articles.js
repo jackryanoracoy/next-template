@@ -3,17 +3,19 @@ import Meta from '../components/Meta'
 import ArticleList from '../components/ArticleList'
 import stylesUtility from '../styles/Utility.module.scss'
 
-export default function about({ articles }) {
+export default function Articles ({ article }) {
   return (
     <div>
-      <Meta title='About' keywords='Your Keyword' />
+      <Meta title='Articles' keywords='Your Keyword' />
 
       <section className={stylesUtility.section}>
         <h2 className={`
-        ${stylesUtility["font_extra_large"]} 
-        ${stylesUtility["mb_40"]}`}>Articles</h2>
+          ${stylesUtility["font_default"]}
+          ${stylesUtility["font_extra_large_md"]} 
+          ${stylesUtility["mb_20"]}
+          ${stylesUtility["mb_md_40"]}`}>Articles</h2>
 
-        <ArticleList articles={articles} />
+        <ArticleList articles={article} />
       </section>
     </div>
   )
@@ -21,11 +23,12 @@ export default function about({ articles }) {
 
 export const getStaticProps = async () => {
   const res = await fetch(`${server}/api/articles`)
-  const articles = await res.json()
+
+  const article = await res.json()
 
   return {
     props: {
-      articles,
+      article,
     },
   }
 }

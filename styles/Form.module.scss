@@ -28,6 +28,11 @@
     resize: vertical;
   }
 
+  & input,
+  & textarea {
+    width: 100%;
+  }
+
   & input[type=checkbox] {
     width: 10px;
     height: 10px;
