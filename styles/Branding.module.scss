@@ -1,0 +1,41 @@
+/*!
+ * Title:       Next Template
+ * File:        Branding Style
+ * Description: Style for Brading.
+ */
+
+@import 'variable';
+@import 'mixin';
+
+/*--------------------------------------------------
+  Branding
+--------------------------------------------------*/
+
+.branding {
+  display: flex;
+  align-items: center;
+  height: $header-height_m;
+  font-size: $font-xl;
+  white-space: nowrap;
+
+  &_logo {
+    display: block;
+    width: auto !important;
+    max-width: 100%;
+    max-height: calc(100% - 20px);
+  }
+
+  &_title {
+    color: $white !important;
+    font-size: inherit;
+    text-decoration: none !important;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  @include media-breakpoint-min(lg) {
+    height: $header-height;
+    font-size: $font-sl;
+  }
+}

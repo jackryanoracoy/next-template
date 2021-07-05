@@ -1,4 +1,4 @@
-import styles from '../styles/Header.module.scss'
+import styles from '../styles/MenuButton.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
 const MenuButton = ({ active, handleClick }) => {

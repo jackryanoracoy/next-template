@@ -47,7 +47,12 @@ const Header = () => {
         ${styles["header_content"]}
         ${stylesUtility["bg_secondary"]}
       `}>
-        <Navigation active={active} />
+        <nav className={`
+          ${styles["header_navigation"]}
+          ${active ? styles["is_shown"] : ""}
+        `}>
+          <Navigation />
+        </nav>
       </div>
     </header>
   )

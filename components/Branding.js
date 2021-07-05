@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/Header.module.scss'
+import styles from '../styles/Branding.module.scss'
 
 const Branding = () => {
   return (
