@@ -20,12 +20,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header id="header" className={`${styles["header"]} ${scroll ? styles["hide"] : styles["show"]} ${active ? styles["menu_show"] : ""}`}>
+    <header id="header" className={`${styles["header"]} ${scroll ? styles["is_hidden"] : ""} ${active ? styles["is_shown"] : ""}`}>
       <div className={`
-        ${styles["header_content"]} 
-        ${stylesUtility["bg_primary"]} 
-        ${stylesUtility["flex"]} 
-        ${stylesUtility["is_jus_spbetween"]} 
+        ${styles["header_content"]}
+        ${stylesUtility["bg_primary"]}
+        ${stylesUtility["flex"]}
+        ${stylesUtility["is_jus_spbetween"]}
         ${stylesUtility["is_alt_center"]}
       `}>
         <div className={styles.header_branding}>
@@ -35,10 +35,10 @@ const Header = () => {
         </div>
 
         <div className={`
-          ${styles["header_menu"]} 
+          ${styles["header_menu"]}
           ${stylesUtility["hidden_lg_min"]}
         `}>
-          <button type="button" className={`${styles["menu"]} ${active ? styles["active"] : ""}`} onClick={handleClick}>
+          <button type="button" className={`${styles["menu"]} ${active ? styles["is_active"] : ""}`} onClick={handleClick}>
             <span className={styles.menu_box}>
               <span className={styles.menu_inner}></span>
             </span>
@@ -48,15 +48,15 @@ const Header = () => {
       </div>
 
       <div className={`
-        ${styles["header_content"]} 
+        ${styles["header_content"]}
         ${stylesUtility["bg_secondary"]}
       `}>
-        <nav className={`${styles["header_navigation"]} ${active ? styles["show"] : ""}`}>
+        <nav className={`${styles["header_navigation"]} ${active ? styles["is_shown"] : ""}`}>
           <ul className={styles.nav}>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/" ? styles["active"] : ""}`}><Link href='/'>Home</Link></li>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/about" ? styles["active"] : ""}`}><Link href='/about'>About</Link></li>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/articles" ? styles["active"] : ""}`}><Link href='/articles'>Articles</Link></li>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/contact" ? styles["active"] : ""}`}><Link href='/contact'>Contacts</Link></li>
+            <li className={`${styles["nav_item"]} ${router.pathname == "/" ? styles["is_active"] : ""}`}><Link href='/'>Home</Link></li>
+            <li className={`${styles["nav_item"]} ${router.pathname == "/about" ? styles["is_active"] : ""}`}><Link href='/about'>About</Link></li>
+            <li className={`${styles["nav_item"]} ${router.pathname == "/articles" ? styles["is_active"] : ""}`}><Link href='/articles'>Articles</Link></li>
+            <li className={`${styles["nav_item"]} ${router.pathname == "/contact" ? styles["is_active"] : ""}`}><Link href='/contact'>Contacts</Link></li>
           </ul>
         </nav>
       </div>

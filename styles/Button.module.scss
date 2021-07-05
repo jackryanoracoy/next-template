@@ -25,6 +25,7 @@
   background-color: $white;
   box-shadow: $z-depth-1;
   white-space: nowrap;
+  border: none;
 
   &:hover,
   &:visited,
@@ -35,6 +36,11 @@
 
   &:hover {
     box-shadow: $z-depth-2;
+  }
+
+  &.is_disabled {
+    opacity: 0.85;
+    pointer-events: none;
   }
 
   &.is_block { display: block; }

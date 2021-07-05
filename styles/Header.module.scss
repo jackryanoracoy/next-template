@@ -18,12 +18,12 @@
   min-width: 240px;
   z-index: 9;
 
-  &.hide {
+  &.is_hidden {
     top: -$header-height_m;
     transition: $transition;
   }
 
-  &.menu_show {
+  &.is_shown {
     top: 0;
   }
 
@@ -39,7 +39,7 @@
     transition: $transition;
     overflow: hidden;
 
-    &.show { max-height: 100vh; }
+    &.is_shown { max-height: 100vh; }
   }
 
   @include media-breakpoint-min(lg) {
@@ -47,7 +47,7 @@
       box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     }
 
-    &.hide {
+    &.is_hidden {
       top: -$header-height;
     }
 
@@ -70,7 +70,7 @@
   }
 
   @include media-breakpoint-max(lg) {
-    &:not(.hide) {
+    &:not(.is_hidden) {
       box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     }
   }
@@ -109,7 +109,7 @@
 
     &:hover,
     &:active,
-    &.active { text-decoration: none; }
+    &.is_active { text-decoration: none; }
   }
 
   @include media-breakpoint-min(lg) {
@@ -125,7 +125,7 @@
     }
 
     &_item:hover,
-    &_item.active {
+    &_item.is_active {
       background-color: $primary;
     }
   }
@@ -177,9 +177,9 @@
   &_inner::before { top: -10px; }
   &_inner::after { bottom: -10px; }
 
-  &.active &_inner { background-color: rgba(0, 0, 0, 0); }
-  &.active &_inner::before { top: 0; transform: rotate(-40deg); }
-  &.active &_inner::after { bottom: 0; transform: rotate(40deg); }
+  &.is_active &_inner { background-color: rgba(0, 0, 0, 0); }
+  &.is_active &_inner::before { top: 0; transform: rotate(-40deg); }
+  &.is_active &_inner::after { bottom: 0; transform: rotate(40deg); }
 }
 
 /*--------------------------------------------------
