@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from "next/router";
-import Link from 'next/link'
+import Navigation from './Navigation'
+import Branding from './Branding'
+import MenuButton from './MenuButton'
 import styles from '../styles/Header.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
 const Header = () => {
-  const router = useRouter();
-
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -20,7 +19,11 @@ const Header = () => {
   }, []);
 
   return (
-    <header id="header" className={`${styles["header"]} ${scroll ? styles["is_hidden"] : ""} ${active ? styles["is_shown"] : ""}`}>
+    <header className={`
+      ${styles["header"]}
+      ${scroll ? styles["is_hidden"] : ""}
+      ${active ? styles["is_shown"] : ""}
+    `}>
       <div className={`
         ${styles["header_content"]}
         ${stylesUtility["bg_primary"]}
@@ -29,21 +32,14 @@ const Header = () => {
         ${stylesUtility["is_alt_center"]}
       `}>
         <div className={styles.header_branding}>
-          <h1 className={styles.branding}>
-            <Link href='/'><a className={styles.branding_title}>NEXT TEMPLATE</a></Link>
-          </h1>
+          <Branding />
         </div>
 
         <div className={`
           ${styles["header_menu"]}
           ${stylesUtility["hidden_lg_min"]}
         `}>
-          <button type="button" className={`${styles["menu"]} ${active ? styles["is_active"] : ""}`} onClick={handleClick}>
-            <span className={styles.menu_box}>
-              <span className={styles.menu_inner}></span>
-            </span>
-            <span className={stylesUtility.sr_only}>Menu Buttonsn</span>
-          </button>
+          <MenuButton active={active} handleClick={handleClick} />
         </div>
       </div>
 
@@ -51,14 +47,7 @@ const Header = () => {
         ${styles["header_content"]}
         ${stylesUtility["bg_secondary"]}
       `}>
-        <nav className={`${styles["header_navigation"]} ${active ? styles["is_shown"] : ""}`}>
-          <ul className={styles.nav}>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/" ? styles["is_active"] : ""}`}><Link href='/'>Home</Link></li>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/about" ? styles["is_active"] : ""}`}><Link href='/about'>About</Link></li>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/articles" ? styles["is_active"] : ""}`}><Link href='/articles'>Articles</Link></li>
-            <li className={`${styles["nav_item"]} ${router.pathname == "/contact" ? styles["is_active"] : ""}`}><Link href='/contact'>Contacts</Link></li>
-          </ul>
-        </nav>
+        <Navigation active={active} />
       </div>
     </header>
   )

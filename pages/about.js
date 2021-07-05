@@ -10,7 +10,7 @@ const about = () => {
       <section className={stylesUtility.section}>
         <h2 className={`
           ${stylesUtility["font_default"]}
-          ${stylesUtility["font_extra_large_md"]} 
+          ${stylesUtility["font_extra_large_md"]}
           ${stylesUtility["mb_20"]}
           ${stylesUtility["mb_md_40"]}`}>About</h2>
 
