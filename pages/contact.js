@@ -7,6 +7,7 @@ const contact = () => {
   return (
     <>
       <Meta title='Contact' keywords='Your Keyword' />
+
       <section className={stylesUtility.section}>
         <h2 className={`
           ${stylesUtility["font_default"]}

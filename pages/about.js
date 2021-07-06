@@ -4,7 +4,7 @@ import stylesUtility from '../styles/Utility.module.scss'
 
 const about = () => {
   return (
-    <div>
+    <>
       <Meta title='About' keywords='Your Keyword' />
 
       <section className={stylesUtility.section}>
@@ -16,7 +16,7 @@ const about = () => {
 
         <AboutContent />
       </section>
-    </div>
+    </>
   )
 }
 
