@@ -12,7 +12,7 @@ const ArticleItem = ({ article }) => {
       `}>
         <div className={stylesCard.card_content}>
           <h3 className={stylesUtility.font_default}>{article.title}</h3>
-          <p className={stylesUtility.font_medium}>{article.excerpt}</p>
+          <p className={stylesUtility.font_medium}>{article.body}</p>
         </div>
       </a>
     </Link>

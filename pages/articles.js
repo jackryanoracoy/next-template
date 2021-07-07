@@ -3,7 +3,7 @@ import Meta from '../components/Meta'
 import ArticleList from '../components/ArticleList'
 import stylesUtility from '../styles/Utility.module.scss'
 
-export default function Articles ({ article }) {
+export default function Articles ({ articles }) {
   return (
     <>
       <Meta title='Articles' keywords='Your Keyword' />
@@ -15,20 +15,31 @@ export default function Articles ({ article }) {
           ${stylesUtility["mb_20"]}
           ${stylesUtility["mb_md_40"]}`}>Articles</h2>
 
-        <ArticleList articles={article} />
+        <ArticleList articles={articles} />
       </section>
     </>
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/articles`)
+// export const getStaticProps = async () => {
+//   const res = await fetch(`${server}/api/articles`)
 
-  const article = await res.json()
+//   const article = await res.json()
+
+//   return {
+//     props: {
+//       article,
+//     },
+//   }
+// }
+
+export const getStaticProps = async () => {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=12`)
+  const articles = await res.json()
 
   return {
     props: {
-      article,
+      articles,
     },
   }
 }
