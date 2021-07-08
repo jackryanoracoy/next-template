@@ -1,9 +1,22 @@
-import { server } from '../config'
+import { usePaginatePosts } from "./api/useRequest";
 import Meta from '../components/Meta'
 import ArticleList from '../components/ArticleList'
+import stylesButton from '../styles/button.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
-export default function Articles ({ articles }) {
+export default function Articles () {
+  const {
+    articles,
+    error,
+    isLoadingMore,
+    size,
+    setSize,
+    isReachingEnd
+  } = usePaginatePosts("/posts");
+
+  if (error) return <h1>Something went wrong!</h1>;
+  if (!articles) return <h1>Loading...</h1>;
+
   return (
     <>
       <Meta title='Articles' keywords='Your Keyword' />
@@ -16,30 +29,27 @@ export default function Articles ({ articles }) {
           ${stylesUtility["mb_md_40"]}`}>Articles</h2>
 
         <ArticleList articles={articles} />
+
+        <div className={`
+          ${stylesUtility["flex"]}
+          ${stylesUtility["is_jus_center"]}
+          ${stylesUtility["mt_40"]}
+        `}>
+          <button
+            className={`
+              ${stylesButton["button"]}
+            `}
+            disabled={isLoadingMore || isReachingEnd}
+            onClick={() => setSize(size + 1)}
+          >
+            {isLoadingMore
+              ? "Loading articles..."
+              : isReachingEnd
+              ? "No more articles"
+              : "Load more articles"}
+          </button>
+        </div>
       </section>
     </>
   )
-}
-
-// export const getStaticProps = async () => {
-//   const res = await fetch(`${server}/api/articles`)
-
-//   const article = await res.json()
-
-//   return {
-//     props: {
-//       article,
-//     },
-//   }
-// }
-
-export const getStaticProps = async () => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=12`)
-  const articles = await res.json()
-
-  return {
-    props: {
-      articles,
-    },
-  }
 }

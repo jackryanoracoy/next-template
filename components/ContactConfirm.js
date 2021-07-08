@@ -72,9 +72,11 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
               onClick={handleClick}>Cancel</button>
           </div>
           <div className={stylesUtility.flex_item}>
-            <button className={`
-              ${stylesButton["button"]}
-              ${stylesButton["is_primary"]}`}
+            <button
+              className={`
+                ${stylesButton["button"]}
+                ${stylesButton["is_primary"]}
+              `}
               type="submit"
               onClick={(e)=>{handleSubmit(e)}}>Send Email</button>
           </div>

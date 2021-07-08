@@ -86,10 +86,12 @@ export default function Contact() {
           />
         </div>
 
-        <button className={`
-          ${stylesButton["button"]}
-          ${stylesButton["is_primary"]}
-          ${name, email, message ? "" : stylesButton["is_disabled"]}`}
+        <button
+          className={`
+            ${stylesButton["button"]}
+            ${stylesButton["is_primary"]}
+            ${name, email, message ? "" : stylesButton["is_disabled"]}
+          `}
           type="button"
           onClick={handleClick}>Send Email</button>
       </form>
