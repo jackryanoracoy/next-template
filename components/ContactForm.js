@@ -1,100 +1,93 @@
-import { useState } from 'react'
+import React, { useState } from "react"
 import ContactConfirm from './ContactConfirm'
 import ContactSent from './ContactSent'
 import styles from '../styles/Form.module.scss'
 import stylesButton from '../styles/Button.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
-export default function Contact() {
+export default function ContactGetForm() {
+
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
   };
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [submitted, setSubmitted] = useState(false)
   const [formStatus, setFormStatus] = useState(false);
+  const [query, setQuery] = useState({
+    name: "",
+    email: ""
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Sending')
+  // Update inputs value
+  const handleParam = () => (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setQuery((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
-    let data = {
-      name,
-      email,
-      message
-    }
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then((res) => {
+  // Form Submit function
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    Object.entries(query).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    fetch("https://getform.io/f/53cad136-9ef8-4828-977d-893c68021e19", {
+      method: "POST",
+      body: formData
+    }).then(function (response) {
       setFormStatus(true);
-      console.log('Response received')
-      if (res.status === 200) {
-        console.log('Response succeeded!')
-        setSubmitted(true)
-        setName('')
-        setEmail('')
-        setMessage('')
-      }
-    })
-  }
+      setQuery({ name: "", email: "", message: "" });
+      console.log(response);
+    }).catch(function (error) {
+      console.log(error);
+    });
+  };
 
   return (
-    <>
-      <form className={`
-        ${styles["form"]}
-        ${active ? stylesUtility["hidden"] : ""}
-      `}>
+    <form className={styles.form} onSubmit={formSubmit}>
+      <div className={active ? stylesUtility["hidden"] : ""}>
         <div className={stylesUtility.mb_20}>
-          <label htmlFor='name'>Name</label>
+          <label>Name</label>
           <input
-            type='text'
+            type="text"
             name="name"
             required
             placeholder="Name"
-            onChange={(e)=>{setName(e.target.value)}}
+            value={query.name}
+            onChange={handleParam()}
           />
         </div>
 
         <div className={stylesUtility.mb_20}>
-          <label htmlFor='email'>Email</label>
+          <label>Email</label>
           <input
-            type='email'
+            type="email"
             name="email"
             required
             placeholder="Email"
-            onChange={(e)=>{setEmail(e.target.value)}}
+            value={query.email}
+            onChange={handleParam()}
           />
         </div>
 
         <div className={stylesUtility.mb_20}>
-          <label htmlFor='message'>Message</label>
-          <input
-            type='text'
-            name='message'
+          <label>Message</label>
+          <textarea
+            name="message"
             required
-            placeholder="Message"
-            onChange={(e)=>{setMessage(e.target.value)}}
-          />
+            onChange={handleParam()}>{query.message}</textarea>
         </div>
 
-        <button
-          className={`
-            ${stylesButton["button"]}
-            ${stylesButton["is_primary"]}
-            ${name, email, message ? "" : stylesButton["is_disabled"]}
-          `}
+        <button className={`
+          ${stylesButton["button"]}
+          ${stylesButton["is_primary"]}`}
           type="button"
           onClick={handleClick}>Send Email</button>
-      </form>
+      </div>
 
       {formStatus ? (
         <ContactSent
@@ -104,12 +97,11 @@ export default function Contact() {
         <ContactConfirm
           active={active}
           handleClick={handleClick}
-          handleSubmit={handleSubmit}
-          name={name}
-          email={email}
-          message={message}
+          name={query.name}
+          email={query.email}
+          message={query.message}
         />
       )}
-    </>
+    </form>
   )
 }

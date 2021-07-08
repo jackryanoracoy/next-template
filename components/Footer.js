@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={styles.container}>
           <section className={`${stylesUtility["section"]} ${stylesUtility["has_padding_narrow"]}`}>
             <h5 className={`
-              ${stylesUtility["text_center"]} 
+              ${stylesUtility["text_center"]}
               ${stylesUtility["color_light"]}
             `}>EXTENDED FOOTER</h5>
           </section>
@@ -19,9 +19,9 @@ const Footer = () => {
         <div className={styles.container}>
           <section className={`${stylesUtility["section"]} ${stylesUtility["has_padding_narrow"]}`}>
             <h5 className={`
-              ${stylesUtility["text_center"]} 
+              ${stylesUtility["text_center"]}
               ${stylesUtility["color_light"]}
-            `}>&copy; 2019 - SITE TITLE</h5>
+            `}>&copy; {new Date().getFullYear()} - SITE TITLE</h5>
           </section>
         </div>
       </div>

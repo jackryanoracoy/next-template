@@ -13,7 +13,7 @@ const contact = () => {
           ${stylesUtility["font_default"]}
           ${stylesUtility["font_extra_large_md"]}
           ${stylesUtility["mb_20"]}
-          ${stylesUtility["mb_md_40"]}`}>Contact form using <a href="https://nodemailer.com/about/" target="blank" rel="noreferrer noopener">NodeMailer</a></h2>
+          ${stylesUtility["mb_md_40"]}`}>Contact form using <a href="https://getform.io/" target="blank" rel="noreferrer noopener">getform.io</a></h2>
 
         <ContactForm />
       </section>

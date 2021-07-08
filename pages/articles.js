@@ -36,9 +36,7 @@ export default function Articles () {
           ${stylesUtility["mt_40"]}
         `}>
           <button
-            className={`
-              ${stylesButton["button"]}
-            `}
+            className={stylesButton.button}
             disabled={isLoadingMore || isReachingEnd}
             onClick={() => setSize(size + 1)}
           >

@@ -3,7 +3,7 @@ import stylesButton from '../styles/Button.module.scss'
 import stylesCard from '../styles/Card.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
-const ContactConfirm = ({ active, handleClick, name, email, message }) => {
+const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, message }) => {
   return (
     <div className={`
       ${stylesCard["card"]}
@@ -77,7 +77,8 @@ const ContactConfirm = ({ active, handleClick, name, email, message }) => {
                 ${stylesButton["button"]}
                 ${stylesButton["is_primary"]}
               `}
-              type="submit">Send Email</button>
+              type="button"
+              onClick={(e)=>{handleSubmit(e)}}>Send Email</button>
           </div>
         </div>
       </div>
