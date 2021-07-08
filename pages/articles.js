@@ -1,7 +1,7 @@
 import { usePaginatePosts } from "./api/useRequest";
 import Meta from '../components/Meta'
 import ArticleList from '../components/ArticleList'
-import stylesButton from '../styles/button.module.scss'
+import stylesButton from '../styles/Button.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
 export default function Articles () {
