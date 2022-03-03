@@ -265,6 +265,39 @@
 .img_crispt { @include img-render-crisp(); }
 
 /*--------------------------------------------------
+  Container
+--------------------------------------------------*/
+
+.container {
+  position: relative;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  &.is_fluid { max-width: 100% !important; }
+
+  @include media-breakpoint-min(xs) {
+    max-width: $container-xs;
+  }
+
+  @include media-breakpoint-min(sm) {
+    max-width: $container-sm;
+  }
+
+  @include media-breakpoint-min(md) {
+    max-width: $container-md;
+  }
+
+  @include media-breakpoint-min(lg) {
+    max-width: $container-lg;
+  }
+
+  @include media-breakpoint-min(xl) {
+    max-width: $container-xl;
+  }
+}
+
+/*--------------------------------------------------
   Flex
 --------------------------------------------------*/
 
@@ -273,21 +306,21 @@
   flex-wrap: wrap;
 
   &.is_row_wrp { flex-flow: row wrap; }
-  &.is_row_wrp_no { flex-flow: row nowrap; }
+  &.is_row_wrp_none { flex-flow: row nowrap; }
   &.is_row_wrp_rev { flex-flow: row wrap-reverse; }
   &.is_row_rev_wrp { flex-flow: row-reverse wrap; }
-  &.is_row_rev_wrp_no { flex-flow: row-reverse nowrap; }
+  &.is_row_rev_wrp_none { flex-flow: row-reverse nowrap; }
   &.is_row_rev_wrp_rev { flex-flow: row-reverse wrap-reverse; }
 
   &.is_col_wrp { flex-flow: column wrap; }
-  &.is_col_wrp_no { flex-flow: column nowrap; }
+  &.is_col_wrp_none { flex-flow: column nowrap; }
   &.is_col_wrp_rev { flex-flow: column wrap-reverse; }
   &.is_col_rev_wrp { flex-flow: column-reverse wrap; }
-  &.is_col_rev_wrp_no { flex-flow: column-reverse nowrap; }
+  &.is_col_rev_wrp_none { flex-flow: column-reverse nowrap; }
   &.is_col_rev_wrp_rev { flex-flow: column-reverse wrap-reverse; }
 
   &.is_wrp { flex-wrap: wrap; }
-  &.is_wrp_no { flex-wrap: nowrap; }
+  &.is_wrp_none { flex-wrap: nowrap; }
   &.is_wrp_rev { flex-wrap: wrap-reverse; }
 
   &.is_col { flex-direction: column; }
@@ -337,28 +370,28 @@
   }
 
   &_grow { flex-grow: 1; }
-  &_grow_no { flex-grow: 0; }
+  &_grow_none { flex-grow: 0; }
   &_shrink { flex-shrink: 1; }
-  &_shrink_no { flex-shrink: 0; }
+  &_shrink_none { flex-shrink: 0; }
 
   @each $breakpoint in map-keys($breakpoints) {
     @include media-breakpoint-min($breakpoint) {
       &.is_row_wrp_#{$breakpoint} { flex-flow: row wrap; }
-      &.is_row_wrp_no_#{$breakpoint} { flex-flow: row nowrap; }
+      &.is_row_wrp_none_#{$breakpoint} { flex-flow: row nowrap; }
       &.is_row_wrp_rev_#{$breakpoint} { flex-flow: row wrap-reverse; }
       &.is_row_rev_wrp_#{$breakpoint} { flex-flow: row-reverse wrap; }
-      &.is_row_rev_wrp_no_#{$breakpoint} { flex-flow: row-reverse nowrap; }
+      &.is_row_rev_wrp_none_#{$breakpoint} { flex-flow: row-reverse nowrap; }
       &.is_row_rev_wrp_rev_#{$breakpoint} { flex-flow: row-reverse wrap-reverse; }
 
       &.is_col_wrp_#{$breakpoint} { flex-flow: column wrap; }
-      &.is_col_wrp_no_#{$breakpoint} { flex-flow: column nowrap; }
+      &.is_col_wrp_none_#{$breakpoint} { flex-flow: column nowrap; }
       &.is_col_wrp_rev_#{$breakpoint} { flex-flow: column wrap-reverse; }
       &.is_col_rev_wrp_#{$breakpoint} { flex-flow: column-reverse wrap; }
-      &.is_col_rev_wrp_no_#{$breakpoint} { flex-flow: column-reverse nowrap; }
+      &.is_col_rev_wrp_none_#{$breakpoint} { flex-flow: column-reverse nowrap; }
       &.is_col_rev_wrp_rev_#{$breakpoint} { flex-flow: column-reverse wrap-reverse; }
 
       &.is_wrp_#{$breakpoint} { flex-wrap: wrap; }
-      &.is_wrp_no_#{$breakpoint} { flex-wrap: nowrap; }
+      &.is_wrp_none_#{$breakpoint} { flex-wrap: nowrap; }
       &.is_wrp_rev_#{$breakpoint} { flex-wrap: wrap-reverse; }
 
       &.is_col_#{$breakpoint} { flex-direction: column; }
@@ -408,9 +441,9 @@
       }
 
       &_grow_#{$breakpoint} { flex-grow: 1; }
-      &_grow_no_#{$breakpoint} { flex-grow: 0; }
+      &_grow_none_#{$breakpoint} { flex-grow: 0; }
       &_shrink_#{$breakpoint} { flex-shrink: 1; }
-      &_shrink_no_#{$breakpoint} { flex-shrink: 0; }
+      &_shrink_none_#{$breakpoint} { flex-shrink: 0; }
     }
   }
 }
@@ -475,7 +508,7 @@
     padding-bottom: ($section-gutter-ver / 4);
   }
 
-  &.has-padding_no { padding: 0 !important; }
+  &.has-padding_none { padding: 0 !important; }
 
   @include media-breakpoint-min(lg) {
     padding-top: $section-gutter-ver;
@@ -502,7 +535,7 @@
 
   &.has_padding_wide { padding-top: $section-gutter-ver; }
   &.has_padding_narrow { padding-top: ($section-gutter-ver / 4); }
-  &.has_padding_no { padding: 0 !important; }
+  &.has_padding_none { padding: 0 !important; }
 
   @include media-breakpoint-min(lg) {
     padding-top: $section-gutter-ver;

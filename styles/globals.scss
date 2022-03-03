@@ -390,30 +390,4 @@ pre {
   h2, h3 {  page-break-after: avoid;  }
 }
 
-/*--------------------------------------------------
-  Typography
---------------------------------------------------*/
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
-
-em { font-style: italic; }
-
-strong { font-weight: bolder; }
-
-small { font-size: 75%; }
-
-pre {
-  font-family: $monospace;
-  font-size: $font-md;
-}
-
-@media print {
-  p, h2, h3 { orphans: 3;  widows: 3; }
-  h2, h3 {  page-break-after: avoid;  }
-}
-
 

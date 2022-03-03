@@ -10,14 +10,19 @@ const article = ({ article }) => {
 
   return (
     <>
-      <Meta title={article.title} description={article.excerpt} />
+      <Meta
+        title={article.title}
+        description={article.excerpt}
+      />
 
-      <section className={stylesUtility.section}>
-        <h1>{article.title}</h1>
-        <p>{article.body}</p>
-        <br />
-        <Link href='/'>Go Back</Link>
-      </section>
+      <div className={stylesUtility.container}>
+        <section className={stylesUtility.section}>
+          <h1>{article.title}</h1>
+          <p>{article.body}</p>
+          <br />
+          <Link href='/'>Go Back</Link>
+        </section>
+      </div>
     </>
   )
 }

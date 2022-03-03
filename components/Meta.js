@@ -13,7 +13,7 @@ const Meta = ({ title, keywords, description, themecolor }) => {
       <meta name="theme-color" content={themecolor} />
       <link rel="mask-icon" href="/app-icon/safari-pinned-tab.svg" color={themecolor} />
 
-      <title>{title}</title>
+      <title>{title} - {description}</title>
       <meta name='keywords' content={keywords} />
       <meta name='description' content={description} />
     </Head>

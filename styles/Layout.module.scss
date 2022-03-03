@@ -22,39 +22,6 @@
 }
 
 /*--------------------------------------------------
-  Container
---------------------------------------------------*/
-
-.container {
-  position: relative;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-
-  &.is_fluid { max-width: 100% !important; }
-
-  @include media-breakpoint-min(xs) {
-    max-width: $container-xs;
-  }
-
-  @include media-breakpoint-min(sm) {
-    max-width: $container-sm;
-  }
-
-  @include media-breakpoint-min(md) {
-    max-width: $container-md;
-  }
-
-  @include media-breakpoint-min(lg) {
-    max-width: $container-lg;
-  }
-
-  @include media-breakpoint-min(xl) {
-    max-width: $container-xl;
-  }
-}
-
-/*--------------------------------------------------
   Site Footer
 --------------------------------------------------*/
 
