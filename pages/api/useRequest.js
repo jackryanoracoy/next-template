@@ -3,7 +3,7 @@ import useSWR, { useSWRInfinite } from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const baseUrl = "https://jsonplaceholder.typicode.com";
+const baseUrl = "https://my-json-server.typicode.com/jackryanoracoy/jsonplaceholder";
 
 export const useGetPosts = (path) => {
   if (!path) {

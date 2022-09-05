@@ -4,7 +4,7 @@ import styles from '../styles/Branding.module.scss'
 
 const Branding = () => {
   const router = useRouter();
-  const brandingName = <Link href='/'><a className={styles.branding_title}>NEXT TEMPLATE</a></Link>;
+  const brandingName = <Link href='/'><a className={styles.branding_title}>{`NEXT TEMPLATE`}</a></Link>;
 
   return (
     router.pathname == "/"

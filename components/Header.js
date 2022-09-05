@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
 import Navigation from './Navigation'
 import Branding from './Branding'
 import MenuButton from './MenuButton'
@@ -6,17 +7,20 @@ import styles from '../styles/Header.module.scss'
 import stylesUtility from '../styles/Utility.module.scss'
 
 const Header = () => {
+  const router = useRouter();
   const [active, setActive] = useState(false);
-  const handleClick = () => {
-    setActive(!active);
-  };
-
+  const handleClick = () => setActive(!active);
   const [scroll, setScroll] = useState(0);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 50);
     });
   }, []);
+
+  useEffect(() => {
+    setActive(false);
+  }, [router.pathname]);
 
   return (
     <header className={`

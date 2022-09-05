@@ -1,11 +1,11 @@
-import { server } from '../config'
+// import { server } from '../config'
 import Meta from '../components/Meta'
 import ArticleList from '../components/ArticleList'
 import AboutContent from '../components/AboutContent'
 import ContactForm from '../components/ContactForm'
 import stylesUtility from '../styles/Utility.module.scss'
 
-export default function Home({ articles }) {
+export default function Home({ articles, about }) {
   return (
     <>
       <Meta title='Home Page' />
@@ -18,10 +18,10 @@ export default function Home({ articles }) {
             ${stylesUtility["mb_20"]}
             ${stylesUtility["mb_md_40"]}
           `}>
-            About
+            {`About`}
           </h2>
 
-          <AboutContent />
+          <AboutContent about={about} />
         </section>
       </div>
 
@@ -33,7 +33,7 @@ export default function Home({ articles }) {
             ${stylesUtility["mb_20"]}
             ${stylesUtility["mb_md_40"]}
           `}>
-            Articles
+            {`Articles`}
           </h2>
 
           <ArticleList articles={articles} />
@@ -48,7 +48,7 @@ export default function Home({ articles }) {
             ${stylesUtility["mb_20"]}
             ${stylesUtility["mb_md_40"]}
           `}>
-            Contact
+            {`Contact`}
           </h2>
 
           <ContactForm />
@@ -70,11 +70,15 @@ export default function Home({ articles }) {
 // }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=3`)
-  const articles = await res.json()
-
+  const dataSource = "https://my-json-server.typicode.com/jackryanoracoy/jsonplaceholder/"
+  const aboutRes = await fetch(dataSource + `about`)
+  const articlesRes = await fetch(dataSource + `posts?_limit=3`)
+  const about = await aboutRes.json()
+  const articles = await articlesRes.json()
+  
   return {
     props: {
+      about,
       articles,
     },
   }

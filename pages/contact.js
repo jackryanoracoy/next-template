@@ -22,7 +22,7 @@ const contact = () => {
             ${stylesUtility["mb_20"]}
             ${stylesUtility["mb_md_40"]}
           `}>
-            {pageTitle} <a href="https://getform.io/" target="blank" rel="noreferrer noopener">getform.io</a>
+            {pageTitle} <a href="https://getform.io/" target="blank" rel="noreferrer noopener">{`getform.io`}</a>
           </h1>
 
           <ContactForm />

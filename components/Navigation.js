@@ -11,28 +11,28 @@ const Navigation = () => {
         ${styles["nav_item"]}
         ${router.pathname == "/" ? styles["is_active"] : ""}
       `}>
-        <Link href='/'>Home</Link>
+        <Link href='/'>{`Home`}</Link>
       </li>
 
       <li className={`
         ${styles["nav_item"]}
         ${router.pathname == "/about" ? styles["is_active"] : ""}
       `}>
-        <Link href='/about'>About</Link>
+        <Link href='/about'>{`About`}</Link>
       </li>
 
       <li className={`
         ${styles["nav_item"]}
         ${router.pathname == "/articles" ? styles["is_active"] : ""}
       `}>
-        <Link href='/articles'>Articles</Link>
+        <Link href='/articles'>{`Articles`}</Link>
       </li>
 
       <li className={`
         ${styles["nav_item"]}
         ${router.pathname == "/contact" ? styles["is_active"] : ""}
       `}>
-        <Link href='/contact'>Contacts</Link>
+        <Link href='/contact'>{`Contacts`}</Link>
       </li>
     </ul>
   )

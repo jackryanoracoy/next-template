@@ -10,7 +10,9 @@ const Footer = () => {
             <h5 className={`
               ${stylesUtility["text_center"]}
               ${stylesUtility["color_light"]}
-            `}>EXTENDED FOOTER</h5>
+            `}>
+              {`EXTENDED FOOTER`}
+            </h5>
           </section>
         </div>
       </div>
@@ -21,7 +23,9 @@ const Footer = () => {
             <h5 className={`
               ${stylesUtility["text_center"]}
               ${stylesUtility["color_light"]}
-            `}>&copy; {new Date().getFullYear()} - SITE TITLE</h5>
+            `}>
+              &copy; {`${new Date().getFullYear()} - SITE TITLE`}
+            </h5>
           </section>
         </div>
       </div>

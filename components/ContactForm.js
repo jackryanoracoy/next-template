@@ -51,7 +51,7 @@ export default function ContactGetForm() {
     <form className={styles.form} onSubmit={formSubmit}>
       <div className={active ? stylesUtility["hidden"] : ""}>
         <div className={stylesUtility.mb_20}>
-          <label>Name</label>
+          <label>{`Name`}</label>
           <input
             type="text"
             name="name"
@@ -63,7 +63,7 @@ export default function ContactGetForm() {
         </div>
 
         <div className={stylesUtility.mb_20}>
-          <label>Email</label>
+          <label>{`Email`}</label>
           <input
             type="email"
             name="email"
@@ -75,18 +75,22 @@ export default function ContactGetForm() {
         </div>
 
         <div className={stylesUtility.mb_20}>
-          <label>Message</label>
+          <label>{`Message`}</label>
           <textarea
             name="message"
             required
-            onChange={handleParam()}>{query.message}</textarea>
+            onChange={handleParam()}>
+            {query.message}
+          </textarea>
         </div>
 
         <button className={`
           ${stylesButton["button"]}
           ${stylesButton["is_primary"]}`}
           type="button"
-          onClick={handleClick}>Send Email</button>
+          onClick={handleClick}>
+          {`Send Email`}
+        </button>
       </div>
 
       {formStatus ? (

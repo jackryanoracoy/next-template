@@ -11,7 +11,7 @@ const MenuButton = ({ active, handleClick }) => {
       <span className={styles.menu_box}>
         <span className={styles.menu_inner}></span>
       </span>
-      <span className={stylesUtility.sr_only}>Menu Button</span>
+      <span className={stylesUtility.sr_only}>{`Menu Button`}</span>
     </button>
   )
 }

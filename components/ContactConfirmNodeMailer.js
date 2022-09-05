@@ -15,7 +15,7 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
           ${stylesUtility["font_default"]}
           ${stylesUtility["font_large_md"]}
           ${stylesUtility["mb_20"]}
-          ${stylesUtility["mb_md_40"]}`}>Confirm Details</h3>
+          ${stylesUtility["mb_md_40"]}`}>{`Confirm Details`}</h3>
 
         <div className={`
           ${stylesUtility["flex"]}
@@ -26,7 +26,7 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
             ${stylesUtility["flex_item_12"]}
             ${stylesUtility["flex_item_sm_2"]}
           `}>
-            <h5>NAME:</h5>
+            <h5>{`NAME:`}</h5>
           </div>
           <div className={`
             ${stylesUtility["flex_item_12"]}
@@ -38,7 +38,7 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
             ${stylesUtility["flex_item_12"]}
             ${stylesUtility["flex_item_sm_2"]}
           `}>
-            <h5>EMAIL:</h5>
+            <h5>{`EMAIL:`}</h5>
           </div>
           <div className={`
             ${stylesUtility["flex_item_12"]}
@@ -50,7 +50,7 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
             ${stylesUtility["flex_item_12"]}
             ${stylesUtility["flex_item_sm_2"]}
           `}>
-            <h5>MESSAGE:</h5>
+            <h5>{`MESSAGE:`}</h5>
           </div>
           <div className={`
             ${stylesUtility["flex_item_12"]}
@@ -69,7 +69,9 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
             <button className={`
               ${stylesButton["button"]}`}
               type="reset"
-              onClick={handleClick}>Cancel</button>
+              onClick={handleClick}>
+              {`Cancel`}
+            </button>
           </div>
           <div className={stylesUtility.flex_item}>
             <button
@@ -78,7 +80,9 @@ const ContactConfirm = ({ active, handleClick, handleSubmit, name, email, messag
                 ${stylesButton["is_primary"]}
               `}
               type="button"
-              onClick={(e)=>{handleSubmit(e)}}>Send Email</button>
+              onClick={(e)=>{handleSubmit(e)}}>
+              {`Send Email`}
+            </button>
           </div>
         </div>
       </div>

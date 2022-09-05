@@ -13,7 +13,9 @@ const ContactSent = ({ active }) => {
         <h3 className={`
           ${stylesUtility["mt_50"]}
           ${stylesUtility["mb_50"]}
-          ${stylesUtility["color_success"]}`}>Your message has been sent.</h3>
+          ${stylesUtility["color_success"]}`}>
+          {`Your message has been sent.`}
+        </h3>
       </div>
     </div>
   )

@@ -51,7 +51,7 @@ export default function Contact() {
     <form className={styles.form}>
       <div className={active ? stylesUtility["hidden"] : ""}>
         <div className={stylesUtility.mb_20}>
-          <label htmlFor='name'>Name</label>
+          <label htmlFor='name'>{`Name`}</label>
           <input
             type="text"
             name="name"
@@ -62,7 +62,7 @@ export default function Contact() {
         </div>
 
         <div className={stylesUtility.mb_20}>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>{`Email`}</label>
           <input
             type="email"
             name="email"
@@ -73,7 +73,7 @@ export default function Contact() {
         </div>
 
         <div className={stylesUtility.mb_20}>
-          <label htmlFor='message'>Message</label>
+          <label htmlFor='message'>{`Message`}</label>
           <input
             type="text"
             name="message"
@@ -89,7 +89,7 @@ export default function Contact() {
             ${stylesButton["is_primary"]}
           `}
           type="button"
-          onClick={handleClick}>Send Email</button>
+          onClick={handleClick}>{`Send Email`}</button>
       </div>
 
       {formStatus ? (

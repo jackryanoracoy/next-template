@@ -17,8 +17,8 @@ export default function Articles () {
     isReachingEnd
   } = usePaginatePosts("/posts");
 
-  if (error) return <h1>Something went wrong!</h1>;
-  if (!articles) return <h1>Loading...</h1>;
+  if (error) return <h1>{`Something went wrong!`}</h1>;
+  if (!articles) return <h1>{`Loading...`}</h1>;
 
   return (
     <>
